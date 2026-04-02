@@ -1,27 +1,31 @@
-import { getUsers } from "../api/read.js";
+import { getUsers } from '../api/read.js';
 
 let usersCache = [];
 
 export function findUserById(id) {
-  return usersCache.find((user) => user.id === id);
+  return usersCache.find(
+    (user) => user.id === id
+  );
 }
 
 export async function renderUsers(apiUrl) {
   const users = await getUsers(apiUrl);
   usersCache = users;
 
-  const usersSection = document.getElementById("users");
+  const usersSection =
+    document.getElementById('users');
 
   if (users.length === 0) {
-    usersSection.innerHTML = '<p class="text-muted">No users found.</p>'; //caso não tenha usuarios ira exibir isso
+    usersSection.innerHTML =
+      '<p class="text-muted">No users found.</p>';
     return;
   }
 
-  usersSection.innerHTML = "";
+  usersSection.innerHTML = '';
 
   users.forEach((user) => {
-    const userDiv = document.createElement("div");
-    userDiv.classList.add("col-md-3");
+    const userDiv = document.createElement('div');
+    userDiv.classList.add('col-md-3');
 
     userDiv.innerHTML = `
       <div class="card user-card h-100"
@@ -46,4 +50,4 @@ export async function renderUsers(apiUrl) {
 
     usersSection.appendChild(userDiv);
   });
-}
+} 

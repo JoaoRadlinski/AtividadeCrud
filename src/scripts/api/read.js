@@ -1,12 +1,11 @@
-export async function getUsers(apiUrl) {
-  const response = await fetch(apiUrl);
-  const data = await response.json(); //Essa função apenas le a resposta do json
 
-  if (!response.ok) {
+export async function getUsers(apiUrl) {
+  try {
+    const response = await axios.get(apiUrl);
+    return response.data.users;
+  } catch (error) {
     throw new Error(
-      data.error || 'Failed to fetch users'
+      error.response?.data?.error || "Failed to fetch users"
     );
   }
-
-  return data.users;
 }

@@ -1,4 +1,117 @@
 body {
-  min-height: 100vh;
-  background-color: #f8f9fa;
+    min-height: 100vh;
+    background-color: #eef1f5;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    background: linear-gradient(135deg, #1e1e2f, #2d2d44) !important;
+    border-bottom: 3px solid #6c5ce7;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.card {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.25s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2d2d44;
+}
+
+.user-card {
+    border-radius: 12px;
+    border: 1px solid #e4e7ec;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.user-card .card-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1e1e2f;
+}
+
+.user-card .card-text {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.user-card .card-footer {
+    background: transparent;
+    border-top: 1px solid #eef1f5;
+    padding: 0.65rem 1rem;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.btn-dark {
+    background-color: #2d2d44;
+    border-color: #2d2d44;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-dark:hover {
+    background-color: #6c5ce7;
+    border-color: #6c5ce7;
+    transform: translateY(-1px);
+}
+
+.btn-outline-dark {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-dark:hover {
+    background-color: #2d2d44;
+    border-color: #2d2d44;
+}
+
+.btn-outline-danger {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-outline-secondary {
+    border-radius: 8px;
+}
+
+.text-muted {
+    font-style: italic;
 }
