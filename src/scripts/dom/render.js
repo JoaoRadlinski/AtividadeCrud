@@ -1,4 +1,4 @@
-import { getUsers } from '../api/read.js';
+import axios from 'axios';
 
 let usersCache = [];
 
@@ -9,15 +9,14 @@ export function findUserById(id) {
 }
 
 export async function renderUsers(apiUrl) {
-  const users = await getUsers(apiUrl);
+  const response = await axios.get(apiUrl);
+  const users = response.data;
   usersCache = users;
 
-  const usersSection =
-    document.getElementById('users');
+  const usersSection = document.getElementById('users');
 
   if (users.length === 0) {
-    usersSection.innerHTML =
-      '<p class="text-muted">No users found.</p>';
+    usersSection.innerHTML = '<p class="text-muted">No users found.</p>';
     return;
   }
 
@@ -50,4 +49,4 @@ export async function renderUsers(apiUrl) {
 
     usersSection.appendChild(userDiv);
   });
-} 
+}
