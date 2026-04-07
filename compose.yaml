@@ -1,6 +1,6 @@
 services:
   httpd:
     build: .
-    container_name: httpd
+    container_name: htttpd
     ports:
      - "8080:80"

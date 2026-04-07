@@ -1,4 +1,3 @@
-
 export async function createUser(apiUrl, { name, age, email }) { 
   try {
     const response = await axios.post(apiUrl, {

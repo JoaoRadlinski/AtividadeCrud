@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { getUsers } from '../api/read.js';
 
 let usersCache = [];
 
@@ -9,8 +9,7 @@ export function findUserById(id) {
 }
 
 export async function renderUsers(apiUrl) {
-  const response = await axios.get(apiUrl);
-  const users = response.data;
+  const users = await getUsers(apiUrl);
   usersCache = users;
 
   const usersSection = document.getElementById('users');
@@ -27,18 +26,11 @@ export async function renderUsers(apiUrl) {
     userDiv.classList.add('col-md-3');
 
     userDiv.innerHTML = `
-      <div class="card user-card h-100"
-           id="${user.id}">
+      <div class="card user-card h-100" id="${user.id}">
         <div class="card-body">
-          <h5 class="card-title">
-            ${user.name}
-          </h5>
-          <p class="card-text mb-1">
-            <strong>Age:</strong> ${user.age}
-          </p>
-          <p class="card-text">
-            <strong>Email:</strong> ${user.email}
-          </p>
+          <h5 class="card-title">${user.name}</h5>
+          <p class="card-text mb-1"><strong>Age:</strong> ${user.age}</p>
+          <p class="card-text"><strong>Email:</strong> ${user.email}</p>
         </div>
         <div class="card-footer d-flex gap-2">
           <button data-action="edit">Edit</button>
